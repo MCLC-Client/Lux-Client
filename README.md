@@ -49,12 +49,6 @@
 - **Direct Integration**: Equip default skins (Steve/Alex) or custom textures directly within the launcher.
 - **Slim Support**: Full support for slim (Alex) arm models.
 
-### Reliability & Performance
-
-- **Connection Handling**: IPv4 priority and extended timeouts (30s) to fix common `ETIMEDOUT` errors with Mojang APIs.
-- **Session Management**: Frequent session verification with profile caching to prevent "429 Too Many Requests" errors.
-- **Auto-Logout**: Secure session handling that automatically returns you to the login screen on authentication failure.
-
 ---
 
 ## Getting Started
