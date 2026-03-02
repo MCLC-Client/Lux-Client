@@ -87,6 +87,7 @@ function App() {
     const [searchCategory, setSearchCategory] = useState(null);
     const [triggerCreateInstance, setTriggerCreateInstance] = useState(false);
     const [appSettings, setAppSettings] = useState({});
+    const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
 
     const downloadsRef = useRef(null);
     const sessionsRef = useRef(null);
@@ -611,16 +612,30 @@ function App() {
                     <div className="flex flex-1 overflow-hidden">
                         { }
                         {currentMode === 'client' ? (
-                            <Sidebar currentView={currentView} setView={setCurrentView} onLogout={handleLogout} onInstanceClick={handleInstanceClick} onCreateInstance={() => { setCurrentView('library'); setTriggerCreateInstance(true); }} isGuest={isGuest} />
-                        ) : currentMode === 'server' ? (
-                            <ServerSidebar currentView={currentView} setView={setCurrentView} onLogout={handleLogout} />
+                            <Sidebar
+                                currentView={currentView}
+                                setView={setCurrentView}
+                                onLogout={handleLogout}
+                                onInstanceClick={handleInstanceClick}
+                                onCreateInstance={() => { setCurrentView('library'); setTriggerCreateInstance(true); }}
+                                isGuest={isGuest}
+                                isCollapsed={isSidebarCollapsed}
+                                setIsCollapsed={setIsSidebarCollapsed}
+                            />
                         ) : (
-                            <ServerSidebar currentView={currentView} setView={setCurrentView} onLogout={handleLogout} />
+                            <ServerSidebar
+                                currentView={currentView}
+                                setView={setCurrentView}
+                                onLogout={handleLogout}
+                                isCollapsed={isSidebarCollapsed}
+                                setIsCollapsed={setIsSidebarCollapsed}
+                            />
                         )}
 
-                        <main className="flex-1 my-4 ml-4 mr-2 bg-surface/10 relative overflow-hidden flex flex-col rounded-2xl border border-white/5 shadow-2xl"
+                        <main className={`flex-1 my-4 ${isSidebarCollapsed ? 'ml-4' : 'ml-2'} mr-2 bg-surface/10 relative overflow-hidden flex flex-col rounded-2xl border border-white/5 shadow-2xl transition-all duration-300`}
                             style={{ backdropFilter: `blur(${theme.glassBlur}px)` }}
                         >
+
                             <div className="flex-1 overflow-hidden bg-surface/20 rounded-2xl relative flex flex-col">
                                 { }
                                 {isPending && (

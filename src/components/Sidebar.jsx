@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ExtensionSlot from './Extensions/ExtensionSlot';
 import { useTranslation } from 'react-i18next';
 
-function Sidebar({ currentView, setView, onLogout, onInstanceClick, onCreateInstance, isGuest }) {
+function Sidebar({ currentView, setView, onLogout, onInstanceClick, onCreateInstance, isGuest, isCollapsed, setIsCollapsed }) {
     const { t } = useTranslation();
     const [recentInstances, setRecentInstances] = useState([]);
     const [settings, setSettings] = useState({ showDisabledFeatures: false });
@@ -53,124 +53,188 @@ function Sidebar({ currentView, setView, onLogout, onInstanceClick, onCreateInst
     };
 
     return (
-        <div className="w-16 my-4 ml-4 mr-2 bg-surface/10 rounded-2xl border border-white/5 shadow-2xl flex flex-col items-center py-6 gap-2 relative z-50"
+        <div className={`transition-all duration-300 ease-in-out ${isCollapsed ? 'w-16' : 'w-56'} my-4 ml-4 mr-2 bg-surface/10 rounded-2xl border border-white/5 shadow-2xl flex flex-col items-center pb-6 relative z-50`}
             style={{ backdropFilter: 'blur(10px)' }}>
-            {visibleMenuItems.map((item) => (
-                <React.Fragment key={item.id}>
-                    <button
-                        onClick={() => !item.disabled && setView(item.id)}
-                        className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all group relative ${currentView === item.id
-                            ? 'bg-primary text-black shadow-[0_0_20px_rgba(var(--primary-color-rgb),0.3)]'
-                            : 'text-gray-400 hover:text-white hover:bg-white/5'
-                            } ${item.disabled ? 'opacity-40 grayscale cursor-not-allowed pointer-events-none' : ''}`}
-                    >
-                        {typeof item.icon === 'string' ? (
-                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
-                            </svg>
-                        ) : (
-                            item.icon
-                        )}
 
-                        { }
-                        <div className="absolute left-full ml-2 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-50 shadow-2xl">
-                            {item.id === 'skins' && isGuest ? t('login.guest_restriction', 'Login required') : item.label}
-                            <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
-                        </div>
-                    </button>
-                    {item.id === 'library' && (
-                        <div className="w-8 h-[1px] bg-white/10 my-1"></div>
-                    )}
-                    {item.id === 'styling' && (
-                        <>
-                            <div className="w-8 h-[1px] bg-white/10 my-1"></div>
+            {/* Header with Toggle */}
+            <div className={`w-full flex ${isCollapsed ? 'justify-center' : 'justify-end'} px-2 pt-4 mb-2`}>
+                <button
+                    onClick={(e) => {
+                        e.stopPropagation();
+                        setIsCollapsed(!isCollapsed);
+                    }}
+                    className="p-2 text-gray-400 hover:text-white transition-all rounded-lg hover:bg-white/5 group/toggle"
+                    title={isCollapsed ? t('common.expand', 'Expand') : t('common.collapse', 'Collapse')}
+                >
+                    <div className={`transition-transform duration-300 ${isCollapsed ? '' : 'rotate-180'}`}>
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </button>
+            </div>
 
-                            { }
-                            {recentInstances.map((inst) => (
-                                <button
-                                    key={inst.name}
-                                    onClick={() => onInstanceClick && onInstanceClick(inst)}
-                                    className="w-10 h-10 rounded-lg flex items-center justify-center transition-all group relative overflow-hidden border border-transparent hover:border-white/10 my-0.5"
-                                >
-                                    {inst.icon && inst.icon.startsWith('data:') ? (
-                                        <img src={inst.icon} alt="" className="w-full h-full object-cover rounded-lg" />
-                                    ) : (
-                                        <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                                        </svg>
-                                    )}
+            <div className="flex-1 w-full px-2 flex flex-col items-center gap-2">
+                {visibleMenuItems.map((item) => (
+                    <React.Fragment key={item.id}>
+                        <button
+                            onClick={() => !item.disabled && setView(item.id)}
+                            className={`h-12 rounded-xl flex items-center transition-all group relative shrink-0 ${isCollapsed ? 'w-12 justify-center' : 'w-full px-4 gap-3'} ${currentView === item.id
+                                ? 'bg-primary text-black shadow-[0_0_20px_rgba(var(--primary-color-rgb),0.3)]'
+                                : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                } ${item.disabled ? 'opacity-40 grayscale cursor-not-allowed pointer-events-none' : ''}`}
+                        >
+                            <div className="shrink-0 flex items-center justify-center w-6 h-6">
+                                {typeof item.icon === 'string' ? (
+                                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
+                                    </svg>
+                                ) : (
+                                    item.icon
+                                )}
+                            </div>
 
-                                    { }
-                                    <div className="absolute left-full ml-2 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-50 shadow-2xl">
-                                        {inst.name}
-                                        <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
-                                    </div>
-                                </button>
-                            ))}
-
-                            { }
-                            {recentInstances.length > 0 && (
-                                <div className="w-8 h-[1px] bg-white/10 my-1"></div>
+                            {!isCollapsed && (
+                                <span className="text-sm font-bold whitespace-nowrap transition-all duration-300">
+                                    {item.label}
+                                </span>
                             )}
 
-                            { }
-                            <button
-                                onClick={() => onCreateInstance && onCreateInstance()}
-                                className="w-10 h-10 rounded-lg flex items-center justify-center text-gray-500 hover:text-primary hover:bg-primary/10 transition-all group relative border border-transparent hover:border-primary/20"
-                            >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                                </svg>
-
-                                { }
-                                <div className="absolute left-full ml-2 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-50 shadow-2xl">
-                                    {t('common.new_instance')}
+                            {isCollapsed && (
+                                <div className="absolute left-full ml-4 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-[100] shadow-2xl">
+                                    {item.id === 'skins' && isGuest ? t('login.guest_restriction', 'Login required') : item.label}
                                     <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
                                 </div>
-                            </button>
-                        </>
+                            )}
+                        </button>
+                        {item.id === 'library' && (
+                            <div className={`h-[1px] bg-white/10 my-1 shrink-0 ${isCollapsed ? 'w-8' : 'w-full mx-2'}`}></div>
+                        )}
+                        {item.id === 'styling' && (
+                            <>
+                                <div className={`h-[1px] bg-white/10 my-1 shrink-0 ${isCollapsed ? 'w-8' : 'w-full mx-2'}`}></div>
+
+                                {recentInstances.map((inst) => (
+                                    <button
+                                        key={inst.name}
+                                        onClick={() => onInstanceClick && onInstanceClick(inst)}
+                                        className={`h-10 rounded-lg flex items-center transition-all group relative shrink-0 border border-transparent hover:border-white/10 my-0.5 ${isCollapsed ? 'w-10 justify-center' : 'w-full px-4 gap-3'}`}
+                                    >
+                                        <div className="shrink-0 w-6 h-6 flex items-center justify-center">
+                                            {inst.icon && inst.icon.startsWith('data:') ? (
+                                                <img src={inst.icon} alt="" className="w-full h-full object-cover rounded-lg" />
+                                            ) : (
+                                                <svg className="w-full h-full text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                                </svg>
+                                            )}
+                                        </div>
+
+                                        {!isCollapsed && (
+                                            <span className="text-xs font-medium truncate text-gray-300 group-hover:text-white transition-colors">
+                                                {inst.name}
+                                            </span>
+                                        )}
+
+                                        {isCollapsed && (
+                                            <div className="absolute left-full ml-4 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-[100] shadow-2xl">
+                                                {inst.name}
+                                                <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
+                                            </div>
+                                        )}
+                                    </button>
+                                ))}
+
+                                {recentInstances.length > 0 && (
+                                    <div className={`h-[1px] bg-white/10 my-1 shrink-0 ${isCollapsed ? 'w-8' : 'w-full mx-2'}`}></div>
+                                )}
+
+                                <button
+                                    onClick={() => onCreateInstance && onCreateInstance()}
+                                    className={`h-10 rounded-lg flex items-center text-gray-400 hover:text-primary hover:bg-primary/10 transition-all group relative shrink-0 border border-transparent hover:border-primary/20 ${isCollapsed ? 'w-10 justify-center' : 'w-full px-4 gap-3'}`}
+                                >
+                                    <div className="shrink-0 w-5 h-5 flex items-center justify-center">
+                                        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                                        </svg>
+                                    </div>
+
+                                    {!isCollapsed && (
+                                        <span className="text-xs font-bold uppercase tracking-wider">
+                                            {t('common.new_instance')}
+                                        </span>
+                                    )}
+
+                                    {isCollapsed && (
+                                        <div className="absolute left-full ml-4 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-[100] shadow-2xl">
+                                            {t('common.new_instance')}
+                                            <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
+                                        </div>
+                                    )}
+                                </button>
+                            </>
+                        )}
+                    </React.Fragment>
+                ))}
+            </div>
+
+            {/* Bottom Controls */}
+            <div className="w-full px-2 mt-4 flex flex-col items-center gap-2">
+                <button
+                    onClick={() => setView('settings')}
+                    className={`h-12 rounded-xl flex items-center transition-all group relative shrink-0 ${isCollapsed ? 'w-12 justify-center' : 'w-full px-4 gap-3'} ${currentView === 'settings'
+                        ? 'bg-primary text-black shadow-[0_0_20px_rgba(var(--primary-color-rgb),0.3)]'
+                        : 'text-gray-400 hover:text-white hover:bg-white/5'
+                        }`}
+                >
+                    <div className="shrink-0 flex items-center justify-center w-6 h-6">
+                        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+
+                    {!isCollapsed && (
+                        <span className="text-sm font-bold truncate">
+                            {t('common.settings')}
+                        </span>
                     )}
-                </React.Fragment>
-            ))}
 
-            <div className="flex-1"></div>
+                    {isCollapsed && (
+                        <div className="absolute left-full ml-4 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-[100] shadow-2xl">
+                            {t('common.settings')}
+                            <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
+                        </div>
+                    )}
+                </button>
 
-            { }
-            <button
-                onClick={() => setView('settings')}
-                className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all group relative ${currentView === 'settings'
-                    ? 'bg-primary text-black shadow-[0_0_20px_rgba(var(--primary-color-rgb),0.3)]'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
-                    }`}
-            >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
+                <div className={`h-[1px] bg-white/10 my-1 shrink-0 ${isCollapsed ? 'w-8' : 'w-full mx-2'}`}></div>
 
-                <div className="absolute left-full ml-2 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-50 shadow-2xl">
-                    {t('common.settings')}
-                    <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
-                </div>
-            </button>
+                <button
+                    onClick={onLogout}
+                    className={`h-12 rounded-xl flex items-center transition-all group relative shrink-0 text-gray-400 hover:text-red-400 hover:bg-red-500/10 ${isCollapsed ? 'w-12 justify-center' : 'w-full px-4 gap-3'}`}
+                >
+                    <div className="shrink-0 flex items-center justify-center w-6 h-6">
+                        <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                    </div>
 
-            <div className="w-8 h-[1px] bg-white/10 my-2"></div>
+                    {!isCollapsed && (
+                        <span className="text-sm font-bold truncate">
+                            {t('common.logout')}
+                        </span>
+                    )}
 
-            { }
-            <button
-                onClick={onLogout}
-                className="w-12 h-12 rounded-xl flex items-center justify-center text-gray-400 hover:text-red-400 hover:bg-red-500/10 transition-all group relative"
-            >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                </svg>
+                    {isCollapsed && (
+                        <div className="absolute left-full ml-4 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-[100] shadow-2xl">
+                            {t('common.logout')}
+                            <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
+                        </div>
+                    )}
+                </button>
 
-                <div className="absolute left-full ml-2 px-3 py-1.5 bg-[#0d0d0d] border border-white/10 rounded-lg text-xs font-bold text-white whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-50 shadow-2xl">
-                    {t('common.logout')}
-                    <div className="absolute top-1/2 -left-1 transform -translate-y-1/2 border-4 border-transparent border-r-[#0d0d0d]"></div>
-                </div>
-            </button>
-            { }
-            <ExtensionSlot name="sidebar.bottom" className="w-full flex flex-col items-center gap-2 mt-2" />
+                <ExtensionSlot name="sidebar.bottom" className="w-full flex flex-col items-center gap-2 mt-2" />
+            </div>
         </div>
     );
 }
