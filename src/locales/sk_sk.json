@@ -729,15 +729,12 @@
     },
     "agreement": {
         "title": "Vitajte v MCLC",
-        "desc": "Ak chcete pokračovať, prečítajte si a prijmite naše Zmluvné podmienky a Zásady ochrany osobných údajov. Vaše súkromie a bezpečnosť údajov sú pre nás dôležité.",
-        "checkbox": "Prečítal som si a súhlasím so Zmluvnými podmienkami a Zásadami ochrany osobných údajov",
-        "tos": "Zmluvné podmienky",
+        "desc": "Prosím, prečítajte si a prijmite naše Zásady ochrany osobných údajov (do ktorých sme integrovali naše Zmluvné podmienky), aby ste mohli pokračovať. Vaše súkromie a bezpečnosť údajov sú pre nás dôležité.",
+        "checkbox": "Prečítal som si a súhlasím so Zásadami ochrany osobných údajov",
         "privacy": "Zásady ochrany osobných údajov",
         "start": "Spustiť MCLC",
         "decline": "Odmietnuť",
-        "and": "a",
         "opt_out": "Odhlásenie z analytiky",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }

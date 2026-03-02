@@ -729,15 +729,12 @@
     },
     "agreement": {
         "title": "Välkommen till MCLC",
-        "desc": "Läs och godkänn våra användarvillkor och integritetspolicy för att fortsätta. Din integritet och datasäkerhet är viktiga för oss.",
-        "checkbox": "Jag har läst och godkänner användarvillkoren och integritetspolicyn",
-        "tos": "Användarvillkor",
+        "desc": "Vänligen läs och godkänn vår Integritetspolicy (i vilken vi har integrerat våra Användarvillkor) för att fortsätta. Din integritet och datasäkerhet är viktiga för oss.",
+        "checkbox": "Jag har läst och godkänner Integritetspolicyn",
         "privacy": "Integritetspolicy",
         "start": "Starta MCLC",
         "decline": "Neka",
-        "and": "och",
         "opt_out": "Avanmäl analys",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }

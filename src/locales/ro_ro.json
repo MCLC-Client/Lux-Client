@@ -729,15 +729,12 @@
     },
     "agreement": {
         "title": "Bun venit la MCLC",
-        "desc": "Vă rugăm să citiți și să acceptați Termenii și condițiile și Politica de confidențialitate pentru a continua. Confidențialitatea și securitatea datelor dvs. sunt importante pentru noi.",
-        "checkbox": "Am citit și sunt de acord cu Termenii și condițiile și Politica de confidențialitate",
-        "tos": "Termeni și condiții",
+        "desc": "Vă rugăm să citiți și să acceptați Politica de confidențialitate (în care am integrat Termenii și condițiile noastre) pentru a continua. Confidențialitatea și securitatea datelor dvs. sunt importante pentru noi.",
+        "checkbox": "Am citit și sunt de acord cu Politica de confidențialitate",
         "privacy": "Politică de confidențialitate",
         "start": "Porniți MCLC",
         "decline": "Refuză",
-        "and": "și",
         "opt_out": "Renunțare la analiză",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }

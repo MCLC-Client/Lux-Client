@@ -730,15 +730,12 @@
     },
     "agreement": {
         "title": "Herzlich Willkommen bei MCLC",
-        "desc": "Bitte lesen und akzeptieren Sie unsere Nutzungsbedingungen und Datenschutzbestimmungen, um fortzufahren. Ihr Datenschutz und Ihre Datensicherheit sind uns wichtig.",
-        "checkbox": "Ich habe die Nutzungsbedingungen und die Datenschutzerklärung gelesen und stimme ihnen zu.",
-        "tos": "Nutzungsbedingungen",
+        "desc": "Bitte lesen und akzeptieren Sie unsere Datenschutzerklärung (in der wir unsere Nutzungsbedingungen zusammengeführt haben), um fortzufahren. Ihr Datenschutz und Ihre Datensicherheit sind uns wichtig.",
+        "checkbox": "Ich habe die Datenschutzerklärung gelesen und stimme ihr zu.",
         "privacy": "Datenschutzerklärung",
         "start": "MCLC Starten",
         "decline": "Ablehnen",
-        "and": "und",
         "opt_out": "Analytics Opt-Out",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }

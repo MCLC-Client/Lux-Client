@@ -729,15 +729,12 @@
     },
     "agreement": {
         "title": "Willkomme bi MCLC",
-        "desc": "Bitte lies und akzeptier üsi Nutzigsbedingige und d'Dateschutzbestimmige zum wytermache. Dini Privatsphär und Datesicherheit sind üs wichtig.",
-        "checkbox": "Ich ha d'Nutzigsbedingige und d Dateschutzbestimmige gläse und stimme ihne zue",
-        "tos": "Nutzigsbedingige",
+        "desc": "Bitte lies und akzeptier üsi Dateschutzbestimmige (i dene mer üsi Nutzigsbedingige zämegfüert händ) zum wytermache. Dini Privatsphär und Datesicherheit sind üs wichtig.",
+        "checkbox": "Ich ha d'Dateschutzbestimmige gläse und stimme ihne zue",
         "privacy": "Dateschutz",
         "start": "MCLC starte",
         "decline": "Ablehne",
-        "and": "und",
         "opt_out": "Analytics-Opt-Out",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }

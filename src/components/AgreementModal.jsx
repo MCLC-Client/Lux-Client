@@ -37,14 +37,10 @@ const AgreementModal = ({ onAccept, onDecline }) => {
                         </div>
 
                         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-bold uppercase tracking-widest text-primary">
-                            <a href={t('agreement.tos_url')} target="_blank" rel="noreferrer" className="hover:underline">
-                                {t('agreement.tos')}
-                            </a>
-                            <span className="text-gray-600">{t('agreement.and')}</span>
                             <a href={t('agreement.privacy_url')} target="_blank" rel="noreferrer" className="hover:underline">
                                 {t('agreement.privacy')}
                             </a>
-                            <span className="text-gray-600">•</span>
+                            <span className="text-gray-600">+</span>
                             <a href={t('agreement.opt_out_url')} target="_blank" rel="noreferrer" className="hover:underline">
                                 {t('agreement.opt_out')}
                             </a>

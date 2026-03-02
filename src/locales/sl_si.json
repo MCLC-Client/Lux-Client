@@ -729,15 +729,12 @@
     },
     "agreement": {
         "title": "Dobrodošli v MCLC",
-        "desc": "Prosimo, preberite in sprejmite naše Pogoje storitve in Pravilnik o zasebnosti, da nadaljujete. Vaša zasebnost in varnost podatkov sta nam pomembni.",
-        "checkbox": "Prebral sem in se strinjam s Pogoji storitve in Pravilnikom o zasebnosti",
-        "tos": "Pogoji storitve",
+        "desc": "Prosimo, preberite in sprejmite naš Pravilnik o zasebnosti (v katerega smo vključili naše Pogoje storitve), da nadaljujete. Vaša zasebnost in varnost podatkov sta nam pomembni.",
+        "checkbox": "Prebral sem in se strinjam s Pravilnikom o zasebnosti",
         "privacy": "Pravilnik o zasebnosti",
         "start": "Začni MCLC",
         "decline": "Zavrni",
-        "and": "in",
         "opt_out": "Odjava iz analitike",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }

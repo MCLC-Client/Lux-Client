@@ -730,15 +730,12 @@
     },
     "agreement": {
         "title": "Welcome to MCLC",
-        "desc": "Please read and accept our Terms of Service and Privacy Policy to continue. Your privacy and data security are important to us.",
-        "checkbox": "I have read and agree to the Terms of Service and Privacy Policy",
-        "tos": "Terms of Service",
+        "desc": "Please read and accept our Privacy Policy (into which we have merged our Terms of Service) to continue. Your privacy and data security are important to us.",
+        "checkbox": "I have read and agree to the Privacy Policy",
         "privacy": "Privacy Policy",
         "start": "Start MCLC",
         "decline": "Decline",
-        "and": "and",
         "opt_out": "Analytics Opt-Out",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }

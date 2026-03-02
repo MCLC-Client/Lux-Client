@@ -729,15 +729,12 @@
     },
     "agreement": {
         "title": "Witamy w MCLC",
-        "desc": "Aby kontynuować, przeczytaj i zaakceptuj nasze Warunki korzystania z usługi oraz Politykę prywatności. Twoja prywatność i bezpieczeństwo danych są dla nas ważne.",
-        "checkbox": "Przeczytałem i akceptuję Warunki korzystania z usługi oraz Politykę prywatności",
-        "tos": "Warunki korzystania z usługi",
+        "desc": "Aby kontynuować, przeczytaj i zaakceptuj naszą Politykę prywatności (z którą połączyliśmy nasze Warunki korzystania z usługi). Twoja prywatność i bezpieczeństwo danych są dla nas ważne.",
+        "checkbox": "Przeczytałem i akceptuję Politykę prywatności",
         "privacy": "Polityka prywatności",
         "start": "Uruchom MCLC",
         "decline": "Odrzuć",
-        "and": "i",
         "opt_out": "Rezygnacja z analityki",
-        "tos_url": "https://mclc.pluginhub.de/imprint.html",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
     }
