@@ -157,12 +157,11 @@
             }
 
             if (retryCount !== undefined && retryCount > 0) {
-                retryEl.innerText = `Attempt ${retryCount} of 3`;
-                statusEl.style.color = "#ff4747";
+                retryEl.innerText = `Retrying update check... (${retryCount}/3)`;
             } else {
                 retryEl.innerText = '';
-                statusEl.style.color = "#ccc";
             }
+            statusEl.style.color = "#ccc";
         });
     </script>
 </body>

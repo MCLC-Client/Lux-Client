@@ -136,8 +136,7 @@ async function checkAndLaunch() {
             retryCount++;
             if (retryCount <= maxRetries) {
                 splashWindow.webContents.send('updater:status', { status: `Searching for updates`, retryCount });
-                setTimeout(performCheck, 3000);
-            } else {
+                // If we reach max retries, just start the app silently
                 splashWindow.webContents.send('updater:status', { status: 'Starting' });
                 setTimeout(launchMain, 1500);
             }
@@ -155,7 +154,7 @@ async function checkAndLaunch() {
 
     autoUpdater.on('update-not-available', () => {
         splashWindow.webContents.send('updater:status', { status: 'Starting' });
-        setTimeout(launchMain, 1500);
+        setTimeout(launchMain, 2000);
     });
 
     autoUpdater.on('download-progress', (progressObj) => {
@@ -171,19 +170,16 @@ async function checkAndLaunch() {
 
     autoUpdater.on('error', (err) => {
         console.error('[Main] Updater error:', err);
-        splashWindow.webContents.send('updater:status', { status: 'Starting' });
-        setTimeout(launchMain, 1000);
+        // On first error, don't necessarily show it, just move to starting if retries exhausted in performCheck
     });
 
-    performCheck();
+    splashWindow.webContents.once('did-finish-load', () => {
+        performCheck();
+    });
 }
 
 function launchMain() {
     createWindow();
-    if (splashWindow) {
-        splashWindow.close();
-        splashWindow = null;
-    }
 }
 
 function createWindow() {
@@ -207,8 +203,15 @@ function createWindow() {
     });
 
     mainWindow.once('ready-to-show', () => {
-        mainWindow.show();
-        mainWindow.focus();
+        // Delay showing main window slightly to allow splash screen to be visible
+        setTimeout(() => {
+            if (splashWindow) {
+                splashWindow.close();
+                splashWindow = null;
+            }
+            mainWindow.show();
+            mainWindow.focus();
+        }, 500);
     });
 
     console.log('[Main] Preload script configured.');

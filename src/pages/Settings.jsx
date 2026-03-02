@@ -926,8 +926,8 @@ function Settings() {
                     <div className="space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {[
-                                { id: 'GOOGLE_DRIVE', name: 'Google Drive', icon: '/assets/cloud-backup/drive.svg' },
-                                { id: 'DROPBOX', name: 'Dropbox', icon: '/assets/cloud-backup/dropbox.svg' }
+                                { id: 'GOOGLE_DRIVE', name: 'Google Drive', icon: 'assets/cloud-backup/drive.svg' },
+                                { id: 'DROPBOX', name: 'Dropbox', icon: 'assets/cloud-backup/dropbox.svg' }
                             ].map((provider) => (
                                 <div key={provider.id} className={`p-4 rounded-xl border transition-all ${cloudStatus[provider.id]?.loggedIn ? 'bg-primary/5 border-primary/20' : 'bg-black/20 border-white/5 hover:border-white/10'}`}>
                                     <div className="flex items-center justify-between mb-4">
@@ -1005,183 +1005,183 @@ function Settings() {
                     </div>
                 </div>
 
-            {/* Update Section */}
-            <div className="bg-surface/50 p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                <h2 className="text-lg font-bold mb-6 text-white flex items-center gap-2">
-                    <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                    </svg>
-                    {t('settings.update.title', 'Software Update')}
-                </h2>
+                {/* Update Section */}
+                <div className="bg-surface/50 p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                    <h2 className="text-lg font-bold mb-6 text-white flex items-center gap-2">
+                        <svg className="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                        </svg>
+                        {t('settings.update.title', 'Software Update')}
+                    </h2>
 
-                <div className="space-y-6">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <div className="font-medium text-white">{t('settings.update.current_version', 'Current Version')}</div>
-                            <div className="text-sm text-gray-500 mt-1">{updateInfo?.currentVersion || '...'}</div>
-                        </div>
-                        <button
-                            onClick={handleCheckUpdate}
-                            disabled={isCheckingUpdate}
-                            className="px-6 py-2 bg-primary hover:bg-primary-hover rounded-lg text-sm font-medium transition flex items-center gap-2 disabled:opacity-50"
-                        >
-                            {isCheckingUpdate ? (
-                                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                            ) : (
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                </svg>
-                            )}
-                            <span>{isCheckingUpdate ? t('settings.update.checking', 'Checking...') : t('settings.update.check_btn', 'Check for Updates')}</span>
-                        </button>
-                    </div>
-
-                    {updateInfo && updateInfo.needsUpdate && (
-                        <div className="p-6 bg-primary/5 border border-primary/20 rounded-xl animate-scale-in">
-                            <div className="flex items-start justify-between mb-4">
-                                <div>
-                                    <h3 className="font-bold text-white mb-1">{t('settings.update.available', 'Update Available!')}</h3>
-                                    <p className="text-sm text-primary font-bold">Version {updateInfo.latestVersion}</p>
-                                </div>
-                                {!downloadedFilePath && !isDownloadingUpdate && (
-                                    <button
-                                        onClick={handleDownloadUpdate}
-                                        className="px-6 py-2 bg-primary hover:bg-primary-hover text-white rounded-lg text-sm font-bold transition flex items-center gap-2"
-                                    >
-                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                        </svg>
-                                        {t('settings.update.download_btn', 'Download')}
-                                    </button>
+                    <div className="space-y-6">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <div className="font-medium text-white">{t('settings.update.current_version', 'Current Version')}</div>
+                                <div className="text-sm text-gray-500 mt-1">{updateInfo?.currentVersion || '...'}</div>
+                            </div>
+                            <button
+                                onClick={handleCheckUpdate}
+                                disabled={isCheckingUpdate}
+                                className="px-6 py-2 bg-primary hover:bg-primary-hover rounded-lg text-sm font-medium transition flex items-center gap-2 disabled:opacity-50"
+                            >
+                                {isCheckingUpdate ? (
+                                    <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                                ) : (
+                                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
                                 )}
-                                {downloadedFilePath && (
-                                    <button
-                                        onClick={handleInstallUpdate}
-                                        className="px-6 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-bold transition flex items-center gap-2"
-                                    >
-                                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                        </svg>
-                                        {t('settings.update.install_btn', 'Install & Restart')}
-                                    </button>
+                                <span>{isCheckingUpdate ? t('settings.update.checking', 'Checking...') : t('settings.update.check_btn', 'Check for Updates')}</span>
+                            </button>
+                        </div>
+
+                        {updateInfo && updateInfo.needsUpdate && (
+                            <div className="p-6 bg-primary/5 border border-primary/20 rounded-xl animate-scale-in">
+                                <div className="flex items-start justify-between mb-4">
+                                    <div>
+                                        <h3 className="font-bold text-white mb-1">{t('settings.update.available', 'Update Available!')}</h3>
+                                        <p className="text-sm text-primary font-bold">Version {updateInfo.latestVersion}</p>
+                                    </div>
+                                    {!downloadedFilePath && !isDownloadingUpdate && (
+                                        <button
+                                            onClick={handleDownloadUpdate}
+                                            className="px-6 py-2 bg-primary hover:bg-primary-hover text-white rounded-lg text-sm font-bold transition flex items-center gap-2"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                            </svg>
+                                            {t('settings.update.download_btn', 'Download')}
+                                        </button>
+                                    )}
+                                    {downloadedFilePath && (
+                                        <button
+                                            onClick={handleInstallUpdate}
+                                            className="px-6 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg text-sm font-bold transition flex items-center gap-2"
+                                        >
+                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            {t('settings.update.install_btn', 'Install & Restart')}
+                                        </button>
+                                    )}
+                                </div>
+
+                                {isDownloadingUpdate && (
+                                    <div className="mt-4">
+                                        <div className="flex justify-between text-xs text-gray-400 mb-2">
+                                            <span>{t('settings.update.downloading', 'Downloading...')}</span>
+                                            <span>{Math.round(downloadProgress)}%</span>
+                                        </div>
+                                        <div className="w-full h-1.5 bg-black/40 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full bg-primary transition-all duration-300"
+                                                style={{ width: `${downloadProgress}%` }}
+                                            />
+                                        </div>
+                                    </div>
+                                )}
+
+                                {updateInfo.releaseNotes && (
+                                    <div className="mt-4 pt-4 border-t border-white/5">
+                                        <h4 className="text-xs font-bold text-gray-400 uppercase mb-2">{t('settings.update.changelog', 'Release Notes')}</h4>
+                                        <div className="text-sm text-gray-300 max-h-40 overflow-y-auto custom-scrollbar whitespace-pre-wrap">
+                                            {updateInfo.releaseNotes}
+                                        </div>
+                                    </div>
                                 )}
                             </div>
+                        )}
 
-                            {isDownloadingUpdate && (
-                                <div className="mt-4">
-                                    <div className="flex justify-between text-xs text-gray-400 mb-2">
-                                        <span>{t('settings.update.downloading', 'Downloading...')}</span>
-                                        <span>{Math.round(downloadProgress)}%</span>
-                                    </div>
-                                    <div className="w-full h-1.5 bg-black/40 rounded-full overflow-hidden">
-                                        <div
-                                            className="h-full bg-primary transition-all duration-300"
-                                            style={{ width: `${downloadProgress}%` }}
-                                        />
-                                    </div>
-                                </div>
-                            )}
-
-                            {updateInfo.releaseNotes && (
-                                <div className="mt-4 pt-4 border-t border-white/5">
-                                    <h4 className="text-xs font-bold text-gray-400 uppercase mb-2">{t('settings.update.changelog', 'Release Notes')}</h4>
-                                    <div className="text-sm text-gray-300 max-h-40 overflow-y-auto custom-scrollbar whitespace-pre-wrap">
-                                        {updateInfo.releaseNotes}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    )}
-
+                    </div>
                 </div>
-            </div>
 
-            <div className="bg-surface/50 p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                <ToggleBox
-                    checked={showAdvancedSettings}
-                    onChange={setShowAdvancedSettings}
-                    label={t('settings.advanced_settings', 'Advanced Settings')}
-                />
-            </div>
+                <div className="bg-surface/50 p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                    <ToggleBox
+                        checked={showAdvancedSettings}
+                        onChange={setShowAdvancedSettings}
+                        label={t('settings.advanced_settings', 'Advanced Settings')}
+                    />
+                </div>
 
-            {showAdvancedSettings && (
-                <>
-                    {!window.electronAPI.isPackaged && (
+                {showAdvancedSettings && (
+                    <>
+                        {!window.electronAPI.isPackaged && (
+                            <div className="bg-surface/50 p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
+                                <h3 className="text-xs font-black text-yellow-500 uppercase tracking-widest mb-4">Development Testing</h3>
+                                <div className="flex gap-2">
+                                    <input
+                                        type="text"
+                                        value={testVersion}
+                                        onChange={(e) => setTestVersion(e.target.value)}
+                                        placeholder="e.g. 1.0.0"
+                                        className="flex-1 bg-black/20 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-yellow-500/50"
+                                    />
+                                    <button
+                                        onClick={handleSetTestVersion}
+                                        className="px-4 py-2 bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-500 rounded-lg text-xs font-bold border border-yellow-500/20 transition"
+                                    >
+                                        Set Test Version
+                                    </button>
+                                </div>
+                                <p className="text-[10px] text-gray-500 mt-2">Overrides local version string for update check simulation.</p>
+                            </div>
+                        )}
+
                         <div className="bg-surface/50 p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                            <h3 className="text-xs font-black text-yellow-500 uppercase tracking-widest mb-4">Development Testing</h3>
-                            <div className="flex gap-2">
-                                <input
-                                    type="text"
-                                    value={testVersion}
-                                    onChange={(e) => setTestVersion(e.target.value)}
-                                    placeholder="e.g. 1.0.0"
-                                    className="flex-1 bg-black/20 border border-white/10 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-yellow-500/50"
-                                />
-                                <button
-                                    onClick={handleSetTestVersion}
-                                    className="px-4 py-2 bg-yellow-500/10 hover:bg-yellow-500/20 text-yellow-500 rounded-lg text-xs font-bold border border-yellow-500/20 transition"
-                                >
-                                    Set Test Version
-                                </button>
-                            </div>
-                            <p className="text-[10px] text-gray-500 mt-2">Overrides local version string for update check simulation.</p>
-                        </div>
-                    )}
+                            <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
+                                {t('settings.maintenance.title')}
+                            </h2>
 
-                    <div className="bg-surface/50 p-8 rounded-2xl border border-white/5 hover:border-white/10 transition-colors">
-                        <h2 className="text-xs font-black text-gray-500 uppercase tracking-[0.2em] mb-6 flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-                            {t('settings.maintenance.title')}
-                        </h2>
-
-                        <div className="space-y-6">
-                            <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
-                                <div className="flex items-start gap-3">
-                                    <svg className="w-5 h-5 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                    <div>
-                                        <h3 className="font-bold text-gray-200 text-sm">{t('settings.maintenance.troubleshooting_title')}</h3>
-                                        <p className="text-xs text-gray-400 mt-1">{t('settings.maintenance.troubleshooting_desc')}</p>
+                            <div className="space-y-6">
+                                <div className="bg-primary/5 border border-primary/20 rounded-xl p-4">
+                                    <div className="flex items-start gap-3">
+                                        <svg className="w-5 h-5 text-primary mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        <div>
+                                            <h3 className="font-bold text-gray-200 text-sm">{t('settings.maintenance.troubleshooting_title')}</h3>
+                                            <p className="text-xs text-gray-400 mt-1">{t('settings.maintenance.troubleshooting_desc')}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="bg-white/5 rounded-xl p-4 border border-white/5 flex flex-col justify-between h-auto min-h-[140px]">
-                                    <div>
-                                        <h3 className="font-bold text-white text-sm">{t('settings.maintenance.soft_reset_title')}</h3>
-                                        <p className="text-xs text-gray-500 mt-2">
-                                            {t('settings.maintenance.soft_reset_desc')}
-                                            <span className="block mt-1 text-primary font-bold">✓ {t('settings.maintenance.soft_reset_keep')}</span>
-                                        </p>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="bg-white/5 rounded-xl p-4 border border-white/5 flex flex-col justify-between h-auto min-h-[140px]">
+                                        <div>
+                                            <h3 className="font-bold text-white text-sm">{t('settings.maintenance.soft_reset_title')}</h3>
+                                            <p className="text-xs text-gray-500 mt-2">
+                                                {t('settings.maintenance.soft_reset_desc')}
+                                                <span className="block mt-1 text-primary font-bold">✓ {t('settings.maintenance.soft_reset_keep')}</span>
+                                            </p>
+                                        </div>
+                                        <button
+                                            onClick={() => setShowSoftResetModal(true)}
+                                            className="mt-4 w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg text-sm font-bold transition-colors"
+                                        >
+                                            {t('settings.maintenance.soft_reset_btn')}
+                                        </button>
                                     </div>
-                                    <button
-                                        onClick={() => setShowSoftResetModal(true)}
-                                        className="mt-4 w-full bg-white/10 hover:bg-white/20 text-white py-2 rounded-lg text-sm font-bold transition-colors"
-                                    >
-                                        {t('settings.maintenance.soft_reset_btn')}
-                                    </button>
-                                </div>
 
-                                <div className="bg-red-500/5 rounded-xl p-4 border border-red-500/20 flex flex-col justify-between h-auto min-h-[140px]">
-                                    <div>
-                                        <h3 className="font-bold text-red-400 text-sm">{t('settings.maintenance.factory_reset_title')}</h3>
-                                        <p className="text-xs text-gray-500 mt-2">
-                                            {t('settings.maintenance.factory_reset_desc')}
-                                            <span className="block mt-1 text-red-400 font-bold">⚠ {t('settings.maintenance.factory_reset_warning')}</span>
-                                        </p>
+                                    <div className="bg-red-500/5 rounded-xl p-4 border border-red-500/20 flex flex-col justify-between h-auto min-h-[140px]">
+                                        <div>
+                                            <h3 className="font-bold text-red-400 text-sm">{t('settings.maintenance.factory_reset_title')}</h3>
+                                            <p className="text-xs text-gray-500 mt-2">
+                                                {t('settings.maintenance.factory_reset_desc')}
+                                                <span className="block mt-1 text-red-400 font-bold">⚠ {t('settings.maintenance.factory_reset_warning')}</span>
+                                            </p>
+                                        </div>
+                                        <button
+                                            onClick={() => setShowFactoryResetModal(true)}
+                                            className="mt-4 w-full bg-red-500/10 hover:bg-red-500/20 text-red-500 py-2 rounded-lg text-sm font-bold transition-colors border border-red-500/20"
+                                        >
+                                            {t('settings.maintenance.factory_reset_btn')}
+                                        </button>
                                     </div>
-                                    <button
-                                        onClick={() => setShowFactoryResetModal(true)}
-                                        className="mt-4 w-full bg-red-500/10 hover:bg-red-500/20 text-red-500 py-2 rounded-lg text-sm font-bold transition-colors border border-red-500/20"
-                                    >
-                                        {t('settings.maintenance.factory_reset_btn')}
-                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </>
-            )}
+                    </>
+                )}
 
             </div>
 
