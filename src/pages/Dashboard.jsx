@@ -809,34 +809,38 @@ function Dashboard({ onInstanceClick, runningInstances = {}, triggerCreate, onCr
                                         />
                                     </div>
 
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <div className="mb-2 flex items-center justify-between">
-                                                <label className="mb-2 block text-sm font-bold tracking-wide text-gray-400 uppercase">{t('dashboard.version')}</label>
-                                                <div className="flex cursor-pointer items-center gap-2" onClick={() => setShowSnapshots(!showSnapshots)}>
-                                                    <div className={`relative h-4 w-8 rounded-full transition-colors ${showSnapshots ? 'bg-primary' : 'bg-gray-600'}`}>
-                                                        <div className={`absolute top-0.5 bottom-0.5 h-3 w-3 rounded-full bg-white transition-all ${showSnapshots ? 'left-4.5' : 'left-0.5'}`} style={{ left: showSnapshots ? '18px' : '2px' }}></div>
+                                    <div className="grid grid-cols-2 gap-6">
+                                        <div className="flex flex-col">
+                                            <div className="h-6 mb-3 flex items-center justify-between">
+                                                <label className="text-xs font-black tracking-[0.1em] text-gray-500 uppercase">{t('dashboard.version')}</label>
+                                                <div className="flex cursor-pointer items-center gap-2 group/snap" onClick={() => setShowSnapshots(!showSnapshots)}>
+                                                    <div className={`relative h-3.5 w-7 rounded-full transition-colors ${showSnapshots ? 'bg-primary' : 'bg-white/10'}`}>
+                                                        <div className={`absolute top-0.5 h-2.5 w-2.5 rounded-full bg-white transition-all ${showSnapshots ? 'left-4' : 'left-0.5'}`}></div>
                                                     </div>
-                                                    <span className="text-[10px] font-bold uppercase text-gray-400">{t('dashboard.dev_builds')}</span>
+                                                    <span className="text-[9px] font-black uppercase text-gray-500 group-hover/snap:text-primary transition-colors tracking-wider">{t('dashboard.dev_builds')}</span>
                                                 </div>
                                             </div>
                                             {loadingVersions ? (
-                                                <div className="rounded-xl border border-white/10 bg-background p-3 text-gray-500">{t('common.loading')}</div>
+                                                <div className="rounded-xl border border-white/10 bg-background/50 p-3 text-xs text-gray-600 font-medium italic animate-pulse">{t('common.loading')}</div>
                                             ) : (
                                                 <Dropdown
                                                     options={versionOptions}
                                                     value={selectedVersion}
                                                     onChange={setSelectedVersion}
                                                     placeholder={t('dashboard.select_version')}
+                                                    className="w-full"
                                                 />
                                             )}
                                         </div>
-                                        <div>
-                                            <label className="mb-2 block text-sm font-bold tracking-wide text-gray-400 uppercase">{t('dashboard.loader')}</label>
+                                        <div className="flex flex-col">
+                                            <div className="h-6 mb-3 flex items-center">
+                                                <label className="text-xs font-black tracking-[0.1em] text-gray-500 uppercase">{t('dashboard.loader')}</label>
+                                            </div>
                                             <Dropdown
                                                 options={loaderOptions}
                                                 value={selectedLoader}
                                                 onChange={setSelectedLoader}
+                                                className="w-full"
                                             />
                                         </div>
                                     </div>
