@@ -89,6 +89,21 @@ const FONT_OPTIONS = [
   { value: "Montserrat", label: "Montserrat" },
   { value: "Roboto", label: "Roboto" },
   { value: "Geist", label: "Geist" },
+  { value: "Open Sans", label: "Open Sans" },
+  { value: "Lato", label: "Lato" },
+  { value: "Oswald", label: "Oswald" },
+  { value: "Raleway", label: "Raleway" },
+  { value: "Nunito", label: "Nunito" },
+  { value: "Ubuntu", label: "Ubuntu" },
+  { value: "Playfair Display", label: "Playfair Display" },
+  { value: "Merriweather", label: "Merriweather" },
+  { value: "Fira Code", label: "Fira Code" },
+  { value: "JetBrains Mono", label: "JetBrains Mono" },
+  { value: "Outfit", label: "Outfit" },
+  { value: "Quicksand", label: "Quicksand" },
+  { value: "Work Sans", label: "Work Sans" },
+  { value: "Rubik", label: "Rubik" },
+  { value: "PT Sans", label: "PT Sans" },
 ];
 
 const DEFAULT_THEME = {
