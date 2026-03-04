@@ -32,7 +32,9 @@ module.exports = (ipcMain, mainWindow) => {
 
         },
         app,
-        id
+        id,
+        axios,
+        fs
     });
 
     const loadBackend = async (id, extensionPath) => {
