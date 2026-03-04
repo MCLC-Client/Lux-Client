@@ -158,7 +158,12 @@ async function checkAndLaunch() {
 
                     const downloadDir = path.join(app.getPath('userData'), 'updates');
                     await fs.ensureDir(downloadDir);
-                    const targetPath = path.join(downloadDir, asset.name);
+                    // Sanitize the asset name: strip path components and validate characters
+                    const safeAssetName = path.basename(asset.name).replace(/[^a-zA-Z0-9._-]/g, '_');
+                    if (!safeAssetName || safeAssetName.startsWith('.')) {
+                        throw new Error('Invalid update asset filename');
+                    }
+                    const targetPath = path.join(downloadDir, safeAssetName);
 
                     const downloadRes = await axios({
                         url: asset.browser_download_url,
@@ -196,11 +201,12 @@ objShell.Run """" & WScript.Arguments(1) & """", 1, False`;
                             fs.writeFileSync(updateScript, vbsContent);
                             spawn('wscript.exe', [updateScript, targetPath, exeTarget], { detached: true, stdio: 'ignore', windowsHide: true }).unref();
                         } else if (process.platform === 'linux') {
-                            const resolvedTarget = path.resolve(targetPath);
-                            const resolvedDownloadDir = path.resolve(downloadDir);
-                            if (resolvedTarget.startsWith(resolvedDownloadDir + path.sep) && resolvedTarget.endsWith('.AppImage')) {
-                                fs.chmodSync(resolvedTarget, 0o755);
-                                spawn(resolvedTarget, [], { detached: true, stdio: 'ignore' }).unref();
+                            if (safeAssetName.endsWith('.AppImage')) {
+                                // Use a hardcoded filename to fully break the taint chain
+                                const safeUpdatePath = path.join(downloadDir, 'mclc-setup.AppImage');
+                                fs.renameSync(targetPath, safeUpdatePath);
+                                fs.chmodSync(safeUpdatePath, 0o755);
+                                spawn(safeUpdatePath, [], { detached: true, stdio: 'ignore' }).unref();
                             } else {
                                 require('electron').shell.openPath(path.dirname(targetPath));
                             }
