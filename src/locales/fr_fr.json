@@ -32,7 +32,7 @@
         "restart_app": "Redémarrer l'application",
         "error_title": "Oups ! Un problème est survenu...",
         "error_desc": "L'application a rencontré une erreur inattendue. Vous pouvez essayer de la redémarrer.",
-        "launcher": "Client",
+        "launcher": "Launcher",
         "server": "Serveur",
         "new_instance": "Nouvelle instance",
         "play": "Jouer",
@@ -70,11 +70,31 @@
         "size": "Taille",
         "modified": "Modifié",
         "readonly": "Lecture seule",
-        "switch_to_client": "Passer au Client",
+        "switch_to_client": "Passer au Launcher",
         "switch_to_server": "Passer au Serveur",
         "news": "Actualités",
         "no_news_available": "Aucune actualité disponible",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Barre d’actions",

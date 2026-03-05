@@ -32,7 +32,7 @@
         "restart_app": "Starta om appen",
         "error_title": "Hoppsan! Något gick fel...",
         "error_desc": "Ett oväntat fel uppstod i applikationen. Du kan försöka starta om den.",
-        "launcher": "Klient",
+        "launcher": "Launcher",
         "server": "Server",
         "new_instance": "Ny instans",
         "play": "Spela",
@@ -69,11 +69,31 @@
         "name": "Namn",
         "size": "Storlek",
         "modified": "Ändrad",
-        "switch_to_client": "Växla till Klient",
+        "switch_to_client": "Växla till Launcher",
         "switch_to_server": "Växla till Server",
         "news": "Nyheter",
         "no_news_available": "Inga nyheter tillgängliga",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Åtgärdsfält",

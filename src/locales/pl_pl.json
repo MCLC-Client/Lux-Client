@@ -32,7 +32,7 @@
         "restart_app": "Zrestartuj aplikację",
         "error_title": "Ups! Coś poszło nie tak...",
         "error_desc": "Aplikacja napotkała nieoczekiwany błąd. Możesz spróbować ją ponownie uruchomić.",
-        "launcher": "Klient",
+        "launcher": "Launcher",
         "server": "Serwer",
         "new_instance": "Nowa instancja",
         "play": "Graj",
@@ -69,11 +69,31 @@
         "name": "Nazwa",
         "size": "Rozmiar",
         "modified": "Zmodyfikowano",
-        "switch_to_client": "Przejdź do Klienta",
+        "switch_to_client": "Przejdź do Launchera",
         "switch_to_server": "Przejdź do Serwera",
         "news": "Aktualności",
         "no_news_available": "Brak dostępnych aktualności",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Pasek akcji",

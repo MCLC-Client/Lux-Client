@@ -32,7 +32,7 @@
         "restart_app": "Repornește Aplicația",
         "error_title": "Hopa! Ceva a mers greșit...",
         "error_desc": "Aplicația a întâmpinat o eroare neașteptată. Poți încerca să o repornești.",
-        "launcher": "Client",
+        "launcher": "Launcher",
         "server": "Server",
         "new_instance": "Instanță Nouă",
         "play": "Joacă",
@@ -69,11 +69,31 @@
         "name": "Nume",
         "size": "Dimensiune",
         "modified": "Modificat",
-        "switch_to_client": "Comutați la Client",
+        "switch_to_client": "Comutați la Launcher",
         "switch_to_server": "Comutați la Server",
         "news": "Știri",
         "no_news_available": "Nu sunt știri disponibile",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Bară de acțiuni",

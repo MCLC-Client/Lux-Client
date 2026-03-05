@@ -32,7 +32,7 @@
         "restart_app": "App neu starte",
         "error_title": "Uups! Da isch öppis schief gange ...",
         "error_desc": "D'App hät en unerwartete Fehler gha. Probier sie neu z'starte.",
-        "launcher": "Client",
+        "launcher": "Launcher",
         "server": "Server",
         "new_instance": "Neui Instanz",
         "play": "Spiele",
@@ -69,11 +69,31 @@
         "name": "Name",
         "size": "Größe",
         "modified": "Geändert",
-        "switch_to_client": "Zum Client wechseln",
+        "switch_to_client": "Zum Launcher wechseln",
         "switch_to_server": "Zum Server wechseln",
         "news": "Neuigkeiten",
         "no_news_available": "Keine Neuigkeiten verfügbar",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Aktionsleiste",

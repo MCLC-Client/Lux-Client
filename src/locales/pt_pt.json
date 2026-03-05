@@ -32,7 +32,7 @@
         "restart_app": "Reiniciar App",
         "error_title": "Ups! Algo correu mal...",
         "error_desc": "A aplicação encontrou um erro inesperado. Pode tentar reiniciá-la.",
-        "launcher": "Cliente",
+        "launcher": "Launcher",
         "server": "Servidor",
         "new_instance": "Nova Instância",
         "play": "Jogar",
@@ -69,11 +69,31 @@
         "name": "Nome",
         "size": "Tamanho",
         "modified": "Modificado",
-        "switch_to_client": "Mudar para Cliente",
+        "switch_to_client": "Mudar para Launcher",
         "switch_to_server": "Mudar para Servidor",
         "news": "Notícias",
         "no_news_available": "Nenhuma notícia disponível",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Barra de ações",

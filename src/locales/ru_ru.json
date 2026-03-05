@@ -32,7 +32,7 @@
         "restart_app": "Перезапустить",
         "error_title": "Ой! Что-то пошло не так...",
         "error_desc": "Приложение столкнулось с непредвиденной ошибкой. Вы можете попробовать перезапустить его.",
-        "launcher": "Клиент",
+        "launcher": "Launcher",
         "server": "Сервер",
         "new_instance": "Новая сборка",
         "play": "Играть",
@@ -69,11 +69,31 @@
         "name": "Имя",
         "size": "Размер",
         "modified": "Изменено",
-        "switch_to_client": "Переключиться на Клиент",
+        "switch_to_client": "Переключиться на Launcher",
         "switch_to_server": "Переключиться на Сервер",
         "news": "Новости",
         "no_news_available": "Нет доступных новостей",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Панель действий",

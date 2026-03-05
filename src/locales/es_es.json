@@ -32,7 +32,7 @@
         "restart_app": "Reiniciar app",
         "error_title": "¡Vaya! Algo salió mal...",
         "error_desc": "Ocurrió un error inesperado. Prueba a reiniciar la app.",
-        "launcher": "Cliente",
+        "launcher": "Launcher",
         "server": "Servidor",
         "new_instance": "Nueva instancia",
         "play": "Jugar",
@@ -70,11 +70,31 @@
         "size": "Tamaño",
         "modified": "Modificado",
         "readonly": "Solo lectura",
-        "switch_to_client": "Cambiar al Cliente",
+        "switch_to_client": "Cambiar al Launcher",
         "switch_to_server": "Cambiar al Servidor",
         "news": "Noticias",
         "no_news_available": "No hay noticias disponibles",
         "theme_marketplace": "Theme Marketplace"
+    },
+    "client_page": {
+        "title": "Open Client",
+        "description": "Select a version and start playing.",
+        "version": "Version",
+        "loading_versions": "Loading versions...",
+        "installed_state": "Installed",
+        "not_installed_state": "Not installed",
+        "install": "Install",
+        "update": "Update",
+        "installed": "Client installed.",
+        "updated": "Updates installed.",
+        "auto_mods_installed": "{{count}} configured mods installed.",
+        "launching": "Starting client...",
+        "errors": {
+            "load_versions": "Could not load versions.",
+            "install": "Installation failed: {{error}}",
+            "play": "Could not start client: {{error}}",
+            "update": "Update failed: {{error}}"
+        }
     },
     "action_bar": {
         "title": "Barra de acciones",
