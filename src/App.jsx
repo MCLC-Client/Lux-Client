@@ -28,6 +28,7 @@ import AgreementModal from './components/AgreementModal';
 import LanguageSelectionModal from './components/LanguageSelectionModal';
 import LoadingOverlay from './components/LoadingOverlay';
 import WindowControls from './components/WindowControls';
+import CrashModal from './components/CrashModal';
 import { syncCustomFonts } from './services/fontManager';
 import { useTranslation } from 'react-i18next';
 
@@ -105,6 +106,8 @@ function App() {
     const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(true);
     const [isInitialLoading, setIsInitialLoading] = useState(true);
     const [appVersion, setAppVersion] = useState('');
+    const [crashData, setCrashData] = useState(null);
+    const [isCrashModalOpen, setIsCrashModalOpen] = useState(false);
 
     const downloadsRef = useRef(null);
     const sessionsRef = useRef(null);
@@ -112,6 +115,11 @@ function App() {
     const logoRef = useRef(null);
     const lastClientView = useRef('dashboard');
     const lastServerView = useRef('server-dashboard');
+    const appSettingsRef = useRef({});
+
+    useEffect(() => {
+        appSettingsRef.current = appSettings;
+    }, [appSettings]);
 
     const resolveFontFamily = (nextTheme) => {
         const builtInFonts = new Set([
@@ -292,6 +300,16 @@ function App() {
             setIsMaximized(maximized);
         });
 
+        const removeCrashReportListener = window.electronAPI?.onCrashReport((data) => {
+            if (appSettingsRef.current?.enableSmartLogAnalytics !== false) {
+                console.log('[App] Received crash report:', data);
+                setCrashData(data);
+                setIsCrashModalOpen(true);
+            } else {
+                console.log('[App] Crash detected but Smart Log Analytics is disabled.');
+            }
+        });
+
         document.addEventListener('mousedown', handleClickOutside);
 
         return () => {
@@ -302,6 +320,7 @@ function App() {
             if (removeThemeListener) removeThemeListener();
             if (removeSettingsListener) removeSettingsListener();
             if (removeWindowStateListener) removeWindowStateListener();
+            if (removeCrashReportListener) removeCrashReportListener();
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
@@ -843,6 +862,16 @@ function App() {
 
             { }
             <ExtensionSlot name="app.overlay" className="absolute inset-0 pointer-events-none z-[9999] *:pointer-events-auto" />
+
+            <CrashModal
+                isOpen={isCrashModalOpen}
+                onClose={() => setIsCrashModalOpen(false)}
+                crashData={crashData}
+                onFixApplied={() => {
+                    console.log('[App] Fix applied, user may retry launch');
+                }}
+            />
+
             {isInitialLoading && <LoadingOverlay message="Starting..." />}
 
             {!isInitialLoading && appSettings.hasSelectedLanguage === false && (

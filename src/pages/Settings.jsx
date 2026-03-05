@@ -31,6 +31,7 @@ function Settings() {
         enableAutoInstallMods: false,
         autoInstallMods: [],
         showQuickSwitchButton: true,
+        enableSmartLogAnalytics: true,
         language: 'en_us',
         cloudBackupSettings: {
             enabled: false,
@@ -790,6 +791,13 @@ function Settings() {
                         onChange={(val) => handleChange('enableAutoInstallMods', val)}
                         label={t('settings.integration.auto_mod_install')}
                         description={t('settings.integration.auto_mod_install_desc')}
+                    />
+                    <ToggleBox
+                        className="mt-4 pt-4 border-t border-white/5"
+                        checked={settings.enableSmartLogAnalytics !== false}
+                        onChange={(val) => handleChange('enableSmartLogAnalytics', val)}
+                        label={t('settings.integration.smart_log_analytics')}
+                        description={t('settings.integration.smart_log_analytics_desc')}
                     />
                 </div>
 

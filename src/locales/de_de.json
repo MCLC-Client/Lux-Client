@@ -408,6 +408,8 @@
             "optimization_desc": "Installiert automatisch Performance-Mods bei jeder neuen Instanz.",
             "auto_mod_install": "Auto-Install-Mods aktivieren",
             "auto_mod_install_desc": "Installiert automatisch ausgewählte Mods bei neuen Instanzen. Mods, die für bestimmte Versionen nicht verfügbar sind, werden übersprungen.",
+            "smart_log_analytics": "Smart Log Analytics",
+            "smart_log_analytics_desc": "Analysiert Abstürze automatisch und schlägt Lösungen vor.",
             "minimize_to_tray": "In den System-Tray minimieren",
             "minimize_to_tray_desc": "Versteckt den Launcher im System-Tray beim Schließen oder Minimieren."
         },
@@ -793,5 +795,12 @@
         "opt_out": "Analytics Opt-Out",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
+    },
+    "crash": {
+        "title": "Spielabsturz erkannt",
+        "analysis": "Log-Analyse",
+        "no_issues": "Wir konnten die Ursache dieses Absturzes nicht automatisch identifizieren.",
+        "view_log": "Hochgeladenes Protokoll ansehen",
+        "check_manually": "Bitte überprüfe die Datei latest.log manuell."
     }
 }

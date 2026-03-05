@@ -406,7 +406,9 @@
             "auto_mod_install": "Povoliť automatickú inštaláciu módov",
             "auto_mod_install_desc": "Automaticky inštaluje vybrané módy pri vytváraní novej inštancie. Nedostupné módy pre konkrétne verzie budú preskočené.",
             "minimize_to_tray": "Minimalizovať do lišty",
-            "minimize_to_tray_desc": "Skryť spúšťač do systémovej lišty pri zatvorení alebo minimalizácii."
+            "minimize_to_tray_desc": "Skryť spúšťač do systémovej lišty pri zatvorení alebo minimalizácii.",
+            "smart_log_analytics": "Inteligentná analýza logov",
+            "smart_log_analytics_desc": "Automaticky analyzujte pády a navrhujte opravy."
         },
         "cloud": {
             "title": "Nastavenia cloudových záloh",
@@ -790,5 +792,12 @@
         "opt_out": "Odhlásenie z analytiky",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
+    },
+    "crash": {
+        "title": "Zistený pád hry",
+        "analysis": "Analýza logov",
+        "no_issues": "Nepodarilo sa nám automaticky identifikovať príčinu tohto pádu.",
+        "view_log": "Zobraziť nahraný log",
+        "check_manually": "Skontrolujte súbor latest.log manuálne."
     }
 }

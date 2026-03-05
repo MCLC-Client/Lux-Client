@@ -406,7 +406,9 @@
             "auto_mod_install": "Abilita Installazione Automatica Mod",
             "auto_mod_install_desc": "Installa automaticamente le mod selezionate durante la creazione di una nuova istanza. Le mod non disponibili per versioni specifiche verranno ignorate.",
             "minimize_to_tray": "Riduci a icona",
-            "minimize_to_tray_desc": "Nasconde il launcher nel vassoio di sistema alla chiusura o riduzione."
+            "minimize_to_tray_desc": "Nasconde il launcher nel vassoio di sistema alla chiusura o riduzione.",
+            "smart_log_analytics": "Analisi intelligente dei log",
+            "smart_log_analytics_desc": "Analizza automaticamente i crash e suggerisce correzioni."
         },
         "cloud": {
             "title": "Impostazioni Backup Cloud",
@@ -790,5 +792,12 @@
         "opt_out": "Opt-Out Analytics",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
+    },
+    "crash": {
+        "title": "Rilevato crash del gioco",
+        "analysis": "Analisi dei log",
+        "no_issues": "Non è stato possibile identificare automaticamente la causa di questo crash.",
+        "view_log": "Visualizza log caricato",
+        "check_manually": "Controlla manualmente il file latest.log."
     }
 }

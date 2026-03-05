@@ -406,7 +406,9 @@
             "auto_mod_install": "Auto-Install Mods aktiviere",
             "auto_mod_install_desc": "Installiert automatisch usgwehlti Mods bim Erstelle vo neune Instanze. Nöd verfüegbari Mods wärdet übersprunge.",
             "minimize_to_tray": "In den System-Tray minimieren",
-            "minimize_to_tray_desc": "Versteckt den Launcher im System-Tray beim Schließen oder Minimieren."
+            "minimize_to_tray_desc": "Versteckt den Launcher im System-Tray beim Schließen oder Minimieren.",
+            "smart_log_analytics": "Smart Log Analytics",
+            "smart_log_analytics_desc": "Analysiert Abstürz automatisch und schlaat Lösige vor."
         },
         "cloud": {
             "title": "Cloud-Backup-Iistellige",
@@ -790,5 +792,12 @@
         "opt_out": "Analytics-Opt-Out",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
+    },
+    "crash": {
+        "title": "Spielabsturz erchannt",
+        "analysis": "Log-Analyse",
+        "no_issues": "Mir händ d'Ursach vo dem Absturz nöd automatisch chöne identifiziere.",
+        "view_log": "Ufegladnes Protokoll aaluege",
+        "check_manually": "Bitte überprüef d'Datei latest.log manuell."
     }
 }

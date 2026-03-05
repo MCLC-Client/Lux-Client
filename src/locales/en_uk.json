@@ -407,7 +407,9 @@
             "auto_mod_install": "Enable auto-install mods",
             "auto_mod_install_desc": "Automatically install selected mods when creating a new instance. Mods unavailable for that version will be skipped.",
             "minimize_to_tray": "Minimise to Tray",
-            "minimize_to_tray_desc": "Hide the launcher to the system tray when closing or minimising."
+            "minimize_to_tray_desc": "Hide the launcher to the system tray when closing or minimising.",
+            "smart_log_analytics": "Smart Log Analytics",
+            "smart_log_analytics_desc": "Automatically analyze crashes and suggest fixes."
         },
         "cloud": {
             "title": "Cloud Backup",
@@ -791,5 +793,12 @@
         "opt_out": "Analytics Opt-Out",
         "privacy_url": "https://mclc.pluginhub.de/privacy-policy.html",
         "opt_out_url": "https://mclc.pluginhub.de/analytics-opt-out.html"
+    },
+    "crash": {
+        "title": "Game Crash Detected",
+        "analysis": "Log Analysis",
+        "no_issues": "We couldn't automatically identify the cause of this crash.",
+        "view_log": "View Uploaded Log",
+        "check_manually": "Please check the latest.log file manually."
     }
 }
