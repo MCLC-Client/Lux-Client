@@ -75,7 +75,21 @@
         "switch_to_server": "Switch to Server",
         "news": "News",
         "no_news_available": "No news available",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Active",
+        "navigate": "Navigate",
+        "select": "Select",
+        "close": "Close",
+        "instances": "Instances",
+        "instance": "Instance",
+        "mode": "Mode",
+        "navigation": "Navigation",
+        "recent": "Recent",
+        "beta": "Beta",
+        "accounts": "Accounts",
+        "add_account": "Add Account",
+        "installed": "Installed",
+        "applying": "Applying..."
     },
     "client_page": {
         "title": "Open Client",
@@ -139,7 +153,7 @@
         "manual_creation": "Create manually",
         "import_file": "Import from file",
         "import_code": "Import from code",
-        "search_placeholder": "Search instances...",
+        "search_placeholder": "Search",
         "no_instances": "No instances found.",
         "create_to_start": "Create a new instance to start playing.",
         "sort": {
@@ -285,7 +299,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Launcher Customisation",
+        "title": "Appearance",
         "desc": "Personalise your workspace just the way you like it.",
         "accent_base": "Accent & Base",
         "accent_color": "Accent colour",

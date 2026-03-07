@@ -411,6 +411,7 @@ module.exports = (ipcMain, win) => {
             (async () => {
                 const task = activeTasks.get(finalName);
                 if (!task) return;
+                let sendCompletion = async () => {};
 
                 try {
 
@@ -435,7 +436,7 @@ module.exports = (ipcMain, win) => {
                         }
                     };
 
-                    const sendCompletion = async (success, error = null) => {
+                    sendCompletion = async (success, error = null) => {
                         if (task.aborted) return;
                         try {
                             const configPath = path.join(dir, 'instance.json');

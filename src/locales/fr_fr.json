@@ -75,7 +75,21 @@
         "switch_to_server": "Passer au Serveur",
         "news": "Actualités",
         "no_news_available": "Aucune actualité disponible",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Actif",
+        "navigate": "Naviguer",
+        "select": "Sélectionner",
+        "close": "Fermer",
+        "instances": "Instances",
+        "instance": "Instance",
+        "mode": "Mode",
+        "navigation": "Navigation",
+        "recent": "Récent",
+        "beta": "Bêta",
+        "accounts": "Comptes",
+        "add_account": "Ajouter un compte",
+        "installed": "Installé",
+        "applying": "Application..."
     },
     "client_page": {
         "title": "Open Client",
@@ -285,7 +299,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Personnalisation du Launcher",
+        "title": "Apparence",
         "desc": "Concevez votre espace de jeux exactement comme vous le souhaitez.",
         "accent_base": "Accent et Base",
         "accent_color": "Couleur d'accentuation",

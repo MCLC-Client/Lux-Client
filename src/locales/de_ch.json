@@ -74,7 +74,21 @@
         "switch_to_server": "Zum Server wechseln",
         "news": "Neuigkeiten",
         "no_news_available": "Keine Neuigkeiten verfügbar",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Aktiv",
+        "navigate": "Navigiere",
+        "select": "Uswähle",
+        "close": "Schliesse",
+        "instances": "Instanze",
+        "instance": "Instanz",
+        "mode": "Modus",
+        "navigation": "Navigation",
+        "recent": "Kürzlich",
+        "beta": "Beta",
+        "accounts": "Konte",
+        "add_account": "Konto hinzfüege",
+        "installed": "Installiert",
+        "applying": "Wird aagwendet..."
     },
     "client_page": {
         "title": "Open Client",
@@ -284,7 +298,7 @@
         "webgl_error": "WebGL wird nöd unterstützt oder d'Hardwarebeschleunigung isch deaktiviert. Falls du 'Low Graphics Mode' oder 'Legacy GPU Support' in de Iistellige aktiviert hesch, deaktiviere sie bitte, zum 3D-Features z'bruuche."
     },
     "styling": {
-        "title": "Launcher-Aapassig",
+        "title": "Erscheinigsbild",
         "desc": "Mach din Arbetsbereich genau so, wie du wotsch.",
         "accent_base": "Akzent & Basis",
         "accent_color": "Akzentfarb",

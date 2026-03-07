@@ -1,10 +1,17 @@
-const { app, BrowserWindow, ipcMain, protocol, net, Menu, Tray } = require('electron');
+const { app, BrowserWindow, ipcMain, protocol, net, Menu, Tray, nativeImage } = require('electron');
 const fs = require('fs-extra');
 const path = require('path');
+const pkg = require('../package.json');
 
 if (process.platform === 'linux' && process.env.XDG_CURRENT_DESKTOP === 'COSMIC') {
     process.env.XDG_CURRENT_DESKTOP = 'Unity';
 }
+
+app.setName(pkg.productName || 'MCLC');
+app.setAboutPanelOptions({
+    applicationName: pkg.productName || 'MCLC',
+    applicationVersion: pkg.version
+});
 
 app.commandLine.appendSwitch('ignore-gpu-blocklist');
 app.commandLine.appendSwitch('disable-gpu-driver-bug-workarounds');
@@ -561,6 +568,13 @@ if (!gotTheLock) {
 }
 
 app.whenReady().then(() => {
+    if (process.platform === 'darwin') {
+        const dockIconPath = path.join(__dirname, '../resources/icon-mac.png');
+        if (fs.existsSync(dockIconPath)) {
+            app.dock.setIcon(nativeImage.createFromPath(dockIconPath));
+        }
+    }
+
     setupAppMediaProtocol();
     checkAndLaunch();
     handleDeepLink(process.argv);

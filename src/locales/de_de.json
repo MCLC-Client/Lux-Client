@@ -76,7 +76,21 @@
         "size": "Größe",
         "modified": "Geändert",
         "readonly": "Schreibgeschützt",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Aktiv",
+        "navigate": "Navigieren",
+        "select": "Auswählen",
+        "close": "Schließen",
+        "instances": "Instanzen",
+        "instance": "Instanz",
+        "mode": "Modus",
+        "navigation": "Navigation",
+        "recent": "Kürzlich",
+        "beta": "Beta",
+        "accounts": "Konten",
+        "add_account": "Konto hinzufügen",
+        "installed": "Installiert",
+        "applying": "Wird angewendet..."
     },
     "client_page": {
         "title": "Open Client",
@@ -286,7 +300,7 @@
         "webgl_error": "WebGL wird nicht unterstützt oder die Hardwarebeschleunigung ist deaktiviert. Falls du 'Low Graphics Mode' oder 'Legacy GPU Support' in den Einstellungen aktiviert hast, deaktiviere sie bitte, um 3D-Features zu nutzen."
     },
     "styling": {
-        "title": "Launcher-Anpassung",
+        "title": "Erscheinungsbild",
         "desc": "Gestalte deinen Launcher ganz nach deinen Vorstellungen.",
         "accent_base": "Akzent & Basis",
         "accent_color": "Akzentfarbe",

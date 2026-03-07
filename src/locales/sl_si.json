@@ -74,7 +74,21 @@
         "switch_to_server": "Preklopi na strežnik",
         "news": "Novice",
         "no_news_available": "Ni razpoložljivih novic",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Aktivno",
+        "navigate": "Navigiraj",
+        "select": "Izberi",
+        "close": "Zapri",
+        "instances": "Instance",
+        "instance": "Instanca",
+        "mode": "Način",
+        "navigation": "Navigacija",
+        "recent": "Nedavno",
+        "beta": "Beta",
+        "accounts": "Računi",
+        "add_account": "Dodaj račun",
+        "installed": "Nameščeno",
+        "applying": "Uveljavljanje..."
     },
     "client_page": {
         "title": "Open Client",
@@ -284,7 +298,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Prilagoditev zaganjalnika",
+        "title": "Videz",
         "desc": "Oblikujte svoj delovni prostor točno tako, kot želite.",
         "accent_base": "Poudarek in osnova",
         "accent_color": "Barva poudarka",

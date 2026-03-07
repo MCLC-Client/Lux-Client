@@ -74,7 +74,21 @@
         "switch_to_server": "Przejdź do Serwera",
         "news": "Aktualności",
         "no_news_available": "Brak dostępnych aktualności",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Aktywny",
+        "navigate": "Nawiguj",
+        "select": "Wybierz",
+        "close": "Zamknij",
+        "instances": "Instancje",
+        "instance": "Instancja",
+        "mode": "Tryb",
+        "navigation": "Nawigacja",
+        "recent": "Ostatnie",
+        "beta": "Beta",
+        "accounts": "Konta",
+        "add_account": "Dodaj konto",
+        "installed": "Zainstalowano",
+        "applying": "Stosowanie..."
     },
     "client_page": {
         "title": "Open Client",
@@ -284,7 +298,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Personalizacja Launchera",
+        "title": "Wygląd",
         "desc": "Zaprojektuj swój obszar roboczy dokładnie tak, jak chcesz.",
         "accent_base": "Akcent i baza",
         "accent_color": "Kolor akcentu",

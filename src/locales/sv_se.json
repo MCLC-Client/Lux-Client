@@ -74,7 +74,21 @@
         "switch_to_server": "Växla till Server",
         "news": "Nyheter",
         "no_news_available": "Inga nyheter tillgängliga",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Aktiv",
+        "navigate": "Navigera",
+        "select": "Välj",
+        "close": "Stäng",
+        "instances": "Instanser",
+        "instance": "Instans",
+        "mode": "Läge",
+        "navigation": "Navigation",
+        "recent": "Senaste",
+        "beta": "Beta",
+        "accounts": "Konton",
+        "add_account": "Lägg till konto",
+        "installed": "Installerad",
+        "applying": "Tillämpar..."
     },
     "client_page": {
         "title": "Open Client",
@@ -284,7 +298,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Anpassning av Launcher",
+        "title": "Utseende",
         "desc": "Designa din arbetsyta precis som du vill ha den.",
         "accent_base": "Accent & Bas",
         "accent_color": "Accentfärg",

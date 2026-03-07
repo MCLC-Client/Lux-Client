@@ -74,7 +74,21 @@
         "switch_to_server": "Comutați la Server",
         "news": "Știri",
         "no_news_available": "Nu sunt știri disponibile",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Activ",
+        "navigate": "Navighează",
+        "select": "Selectează",
+        "close": "Închide",
+        "instances": "Instanțe",
+        "instance": "Instanță",
+        "mode": "Mod",
+        "navigation": "Navigare",
+        "recent": "Recent",
+        "beta": "Beta",
+        "accounts": "Conturi",
+        "add_account": "Adaugă cont",
+        "installed": "Instalat",
+        "applying": "Se aplică..."
     },
     "client_page": {
         "title": "Open Client",
@@ -284,7 +298,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Personalizare Launcher",
+        "title": "Aspect",
         "desc": "Proiectează-ți spațiul de lucru exact cum îți dorești.",
         "accent_base": "Accent și Bază",
         "accent_color": "Culoare Accent",

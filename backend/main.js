@@ -134,7 +134,7 @@ function createWindow() {
 
 app.whenReady().then(() => {
     protocol.registerFileProtocol('extension', (request, callback) => {
-        const url = request.url.replace(/^extension:\/\
+        const url = request.url.replace(/^extension:\/\/?/, '');
         try {
             const decodedUrl = decodeURIComponent(url);
             const extensionsDir = path.join(app.getPath('userData'), 'extensions');

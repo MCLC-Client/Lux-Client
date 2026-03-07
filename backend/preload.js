@@ -260,11 +260,6 @@ const electronAPI = {
         ipcRenderer.on('server:console-cleared', subscription);
         return () => ipcRenderer.removeListener('server:console-cleared', subscription);
     },
-    onServerStats: (callback) => {
-        const subscription = (_event, value) => callback(value);
-        ipcRenderer.on('server:stats', subscription);
-        return () => ipcRenderer.removeListener('server:stats', subscription);
-    },
     onServerBackupProgress: (callback) => {
         const subscription = (_event, value) => callback(value);
         ipcRenderer.on('server:backup-progress', subscription);
@@ -275,11 +270,6 @@ const electronAPI = {
         ipcRenderer.on('server:download-progress', subscription);
         return () => ipcRenderer.removeListener('server:download-progress', subscription);
     },
-    onServerConsoleCleared: (callback) => {
-        const subscription = (_event, value) => callback(value);
-        ipcRenderer.on('server:console-cleared', subscription);
-        return () => ipcRenderer.removeListener('server:console-cleared', subscription);
-    },
     onServerEulaRequired: (callback) => {
         const subscription = (_event, value) => callback(value);
         ipcRenderer.on('server:eula-required', subscription);
@@ -287,8 +277,6 @@ const electronAPI = {
     },
     onServerPluginProgress: (callback) => {
         const subscription = (_event, value) => callback(value);
-        ipcRenderer.on('server:plugin-progress', subscription);
-        return () => ipcRenderer.removeListener('server:plugin-progress', subscription);
         ipcRenderer.on('server:plugin-progress', subscription);
         return () => ipcRenderer.removeListener('server:plugin-progress', subscription);
     },

@@ -21,7 +21,7 @@
         "library": "Library",
         "search": "Search",
         "skins": "Skins",
-        "styling": "Styling",
+        "styling": "Appearance",
         "settings": "Settings",
         "extensions": "Extensions",
         "logout": "Logout",
@@ -76,7 +76,21 @@
         "size": "Size",
         "modified": "Modified",
         "readonly": "Read-only",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Active",
+        "navigate": "Navigate",
+        "select": "Select",
+        "close": "Close",
+        "instances": "Instances",
+        "instance": "Instance",
+        "mode": "Mode",
+        "navigation": "Navigation",
+        "recent": "Recent",
+        "beta": "Beta",
+        "accounts": "Accounts",
+        "add_account": "Add Account",
+        "installed": "Installed",
+        "applying": "Applying..."
     },
     "client_page": {
         "title": "Open Client",
@@ -291,7 +305,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Launcher Customization",
+        "title": "Appearance",
         "desc": "Customize your launcher however you like.",
         "accent_base": "Accent & Base",
         "accent_color": "Accent Color",

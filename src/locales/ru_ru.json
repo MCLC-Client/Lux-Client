@@ -74,7 +74,21 @@
         "switch_to_server": "Переключиться на Сервер",
         "news": "Новости",
         "no_news_available": "Нет доступных новостей",
-        "theme_marketplace": "Theme Marketplace"
+        "theme_marketplace": "Theme Marketplace",
+        "active": "Активный",
+        "navigate": "Навигация",
+        "select": "Выбрать",
+        "close": "Закрыть",
+        "instances": "Экземпляры",
+        "instance": "Экземпляр",
+        "mode": "Режим",
+        "navigation": "Навигация",
+        "recent": "Недавние",
+        "beta": "Бета",
+        "accounts": "Аккаунты",
+        "add_account": "Добавить аккаунт",
+        "installed": "Установлено",
+        "applying": "Применение..."
     },
     "client_page": {
         "title": "Open Client",
@@ -284,7 +298,7 @@
         "webgl_error": "WebGL is not supported or hardware acceleration is disabled. If you enabled 'Low Graphics Mode' or 'Legacy GPU Support' in Settings, please disable them to use 3D features."
     },
     "styling": {
-        "title": "Кастомизация Лаунчера",
+        "title": "Внешний вид",
         "desc": "Настройте рабочее пространство по своему вкусу.",
         "accent_base": "Акцент и База",
         "accent_color": "Цвет акцента",
