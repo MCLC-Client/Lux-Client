@@ -77,13 +77,11 @@ jobs:
         run: npm run build
 
       - name: Package
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: npx electron-builder --linux rpm --publish never
         env:
           GH_TOKEN: ${{ github.token }}
 
       - name: Add SHA to release filenames
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
           shopt -s nullglob
@@ -101,7 +99,6 @@ jobs:
 
       - name: Check release artifacts exist
         id: relcheck
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         shell: bash
         run: |
           if [[ -d "release" ]] && compgen -G "release/*" > /dev/null; then
@@ -111,36 +108,10 @@ jobs:
           fi
 
       - name: Upload release artifacts
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main' && steps.relcheck.outputs.has_release == 'true'
+        if: steps.relcheck.outputs.has_release == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: release-rpm-${{ env.SHORT_SHA }}
           path: release/
-          if-no-files-found: error
-          compression-level: 6
-
-      - name: Check build output exists
-        id: outcheck
-        if: ${{ github.event_name != 'push' || github.ref != 'refs/heads/main' }}
-        shell: bash
-        run: |
-          has=false
-          for d in dist build out; do
-            if [[ -d "$d" ]] && compgen -G "$d/*" > /dev/null; then
-              has=true
-              break
-            fi
-          done
-          echo "has_output=$has" >> "$GITHUB_OUTPUT"
-
-      - name: Upload build output (non-main pushes/PRs)
-        if: ${{ (github.event_name != 'push' || github.ref != 'refs/heads/main') && steps.outcheck.outputs.has_output == 'true' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-rpm-${{ env.SHORT_SHA }}
-          path: |
-            dist/
-            build/
-            out/
           if-no-files-found: error
           compression-level: 6
