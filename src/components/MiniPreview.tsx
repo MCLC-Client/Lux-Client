@@ -105,10 +105,6 @@ function MiniPreview({ theme }) {
                 </div>
             </div>
 
-            { }
-            <div className="absolute top-2 right-2 bg-black/50 backdrop-blur-sm px-2 py-1 rounded-md border border-border">
-                <span className="text-[8px] font-bold text-white uppercase tracking-wider">Live Preview</span>
-            </div>
         </div>
     );
 }
