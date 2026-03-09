@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNotification } from '../context/NotificationContext';
+import ExtensionSlot from '../components/Extensions/ExtensionSlot';
 import { isFeatureEnabled } from '../config/featureFlags';
 import ToggleBox from '../components/ToggleBox';
 import ConfirmationModal from '../components/ConfirmationModal';
@@ -1352,7 +1353,7 @@ function Settings({ mode = 'default' }) {
                             </AccordionItem>
                         </Accordion>
                     </Card>
-
+                    <ExtensionSlot name="settings.bottom" className="mt-4" />
                 </div>
             </PageContent>
 

@@ -11,6 +11,8 @@ export const ExtensionProvider = ({ children }: { children: React.ReactNode }) =
     const [installedExtensions, setInstalledExtensions] = useState([]);
     const [activeExtensions, setActiveExtensions] = useState<Record<string, any>>({});
     const [views, setViews] = useState<Record<string, any[]>>({});
+    const [hooks, setHooks] = useState<Record<string, any[]>>({});
+    const [injectedStyles, setInjectedStyles] = useState<Record<string, HTMLStyleElement>>({});
     const [loading, setLoading] = useState(true);
     const { addNotification } = useNotification();
     const createExtensionApi = (extensionId, localPath) => ({
@@ -32,8 +34,43 @@ export const ExtensionProvider = ({ children }: { children: React.ReactNode }) =
                 if (addNotification) {
                     addNotification(`[${extensionId}] ${message}`, type);
                 }
+            },
+            injectStyle: (css: string) => {
+                const styleId = `ext-style-${extensionId}`;
+                let styleEl = document.getElementById(styleId) as HTMLStyleElement;
+                if (!styleEl) {
+                    styleEl = document.createElement('style');
+                    styleEl.id = styleId;
+                    document.head.appendChild(styleEl);
+                }
+                styleEl.textContent = css;
+                setInjectedStyles(prev => ({ ...prev, [extensionId]: styleEl }));
             }
+        },
 
+        hooks: {
+            register: (point: string, handler: Function) => {
+                setHooks(prev => {
+                    const pointHooks = prev[point] || [];
+                    return {
+                        ...prev,
+                        [point]: [...pointHooks, { extensionId, handler }]
+                    };
+                });
+            },
+            run: async (point: string, data: any) => {
+                const pointHooks = hooks[point] || [];
+                let currentData = data;
+                for (const hook of pointHooks) {
+                    try {
+                        const result = await hook.handler(currentData);
+                        if (result !== undefined) currentData = result;
+                    } catch (e) {
+                        console.error(`[Extension:${hook.extensionId}] Hook error in ${point}:`, e);
+                    }
+                }
+                return currentData;
+            }
         },
 
         ipc: {
@@ -79,10 +116,30 @@ export const ExtensionProvider = ({ children }: { children: React.ReactNode }) =
                 console.error(`[Extension] Error during deactivate for ${extensionId}:`, e);
             }
         }
+
+        // Remove style
+        const styleEl = injectedStyles[extensionId];
+        if (styleEl) {
+            styleEl.remove();
+            setInjectedStyles(prev => {
+                const next = { ...prev };
+                delete next[extensionId];
+                return next;
+            });
+        }
+
         setViews(prev => {
             const next: Record<string, any[]> = {};
             for (const [slot, items] of Object.entries(prev)) {
                 next[slot] = items.filter(item => item.extensionId !== extensionId);
+            }
+            return next;
+        });
+
+        setHooks(prev => {
+            const next: Record<string, any[]> = {};
+            for (const [point, items] of Object.entries(prev)) {
+                next[point] = items.filter(item => item.extensionId !== extensionId);
             }
             return next;
         });

@@ -213,6 +213,7 @@ function AppSidebar({
         <ScrollArea className="flex-1">
           <div className="flex flex-col w-full h-full">
             <div className={cn('flex flex-col gap-1.5 py-3', isCollapsed ? 'px-2.5' : 'px-3')}>
+              <ExtensionSlot name="sidebar.top" className="flex flex-col gap-1" />
               {menuItems.map((item) => (
                 <NavItem key={item.id} item={item} />
               ))}

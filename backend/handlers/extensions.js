@@ -25,16 +25,36 @@ module.exports = (ipcMain, mainWindow) => {
                 ipcMain.on(fullChannel, (event, ...args) => listener(event, ...args));
             },
             send: (channel, ...args) => {
-                mainWindow.webContents.send(`ext:${id}:${channel}`, ...args);
+                const win = mainWindow || require('electron').BrowserWindow.getAllWindows()[0];
+                if (win) {
+                    win.webContents.send(`ext:${id}:${channel}`, ...args);
+                }
+            }
+        },
+        events: {
+            emit: (event, ...args) => {
+                ipcMain.emit(`ext-event:${event}`, ...args);
+                const win = mainWindow || require('electron').BrowserWindow.getAllWindows()[0];
+                if (win) {
+                    win.webContents.send(`ext-event:${event}`, ...args);
+                }
+            },
+            on: (event, listener) => {
+                ipcMain.on(`ext-event:${event}`, listener);
             }
         },
         launcher: {
-
+            getInstances: () => {
+                const instDir = path.join(app.getPath('userData'), 'instances');
+                if (!fs.existsSync(instDir)) return [];
+                return fs.readdirSync(instDir).filter(f => fs.statSync(path.join(instDir, f)).isDirectory());
+            }
         },
         app,
         id,
         axios,
-        fs
+        fs,
+        path
     });
 
     const loadBackend = async (id, extensionPath) => {
