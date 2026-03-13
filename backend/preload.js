@@ -238,6 +238,9 @@ const electronAPI = {
     getServerSettings: () => ipcRenderer.invoke('server:get-settings'),
     saveServerSettings: (settings) => ipcRenderer.invoke('server:save-settings', settings),
     selectFolder: () => ipcRenderer.invoke('dialog:select-folder'),
+    loadTexturepackZip: (options) => ipcRenderer.invoke('texturepack:load-zip', options),
+    loadDefaultTexturepack: (projectId) => ipcRenderer.invoke('texturepack:load-default', projectId),
+    exportTexturepack: (payload) => ipcRenderer.invoke('texturepack:export', payload),
     onServerStatus: (callback) => {
         const subscription = (_event, value) => callback(value);
         ipcRenderer.on('server:status', subscription);

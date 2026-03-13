@@ -91,6 +91,8 @@ function createWindow() {
         require('./handlers/extensions')(ipcMain, mainWindow);
         console.log('[Main] Registering cloud backup handler...');
         require('./handlers/cloudBackup')(ipcMain, mainWindow);
+        console.log('[Main] Registering texturepacks handler...');
+        require('./handlers/texturepacks')(ipcMain, mainWindow);
         console.log('[Main] Registering discord handler...');
         try {
             const discord = require('./handlers/discord');
